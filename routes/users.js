@@ -38,7 +38,7 @@ router.post(
       .isEmail()
       .withMessage("Please enter a valid email address")
       .custom(async (value, { req }) => {
-        const userFound = await User.findOne({ emai: value });
+        const userFound = await User.findOne({ email: value });
         if (userFound) {
           throw new Error(
             "This email is already exists, please enter a diffrent one"
@@ -55,6 +55,7 @@ router.post(
         if (value !== req.body.confirmPassword) {
           throw new Error("The password has to match");
         }
+        return true;
       }),
     body("firstName", "Please enter a name to complete the registration")
       .trim()
