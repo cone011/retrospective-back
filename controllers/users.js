@@ -5,6 +5,25 @@ const User = require("../models/users");
 const { validationParams } = require("../utils/validationParams");
 const { errorHandler } = require("../utils/errorHandler");
 
+exports.getAllUsers = async (req, res, next) => {
+  const currentPage = req.query.page || 1;
+  const perPage = req.query.perPage;
+  try {
+    const totalUsers = await User.find().countDocuments();
+    const users = await User.find()
+      .populate("users")
+      .sort({ lastName: -1 })
+      .skip((currentPage - 1) * perPage)
+      .limit(perPage);
+    res.status(200).json({
+      message: "OK",
+      result: { users: users, totalUsers: totalUsers },
+    });
+  } catch (err) {
+    errorHandler(err, next);
+  }
+};
+
 exports.signUp = async (req, res, next) => {
   try {
     const errors = validationResult(req);
@@ -76,6 +95,24 @@ exports.login = async (req, res, next) => {
       { expiresIn: "1h" }
     );
     res.status(200).json({ token: token, userId: userFound._id.toString() });
+  } catch (err) {
+    errorHandler(err, next);
+  }
+};
+
+exports.deleteUser = async (req, res, next) => {
+  try {
+    const errors = validationResult(req);
+    validationParams(res, errors);
+    const userId = req.params.userId;
+    const userFound = await User.findById(userId);
+    if (!userFound) {
+      const error = new Error("Could  not found this user");
+      error.statusCode = 403;
+      throw error;
+    }
+    await User.findByIdAndDelete(userId);
+    res.status(201).json({ message: "OK", isDeleted: true });
   } catch (err) {
     errorHandler(err, next);
   }

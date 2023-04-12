@@ -1,9 +1,23 @@
 const express = require("express");
 const router = express.Router();
-const { body, check } = require("express-validator");
+const { body, check, param, query } = require("express-validator");
 const userController = require("../controllers/users");
 const isAuth = require("../middleware/isAuth");
 const User = require("../models/users");
+
+router.get(
+  "/users",
+  isAuth,
+  [
+    query("currentPage", "Select at least one page")
+      .isNumeric()
+      .isLength({ min: 1 }),
+    query("perPage", "Select the limit of users per page")
+      .isNumeric()
+      .isLength({ min: 1 }),
+  ],
+  userController.getAllUsers
+);
 
 router.post(
   "/login",
@@ -62,6 +76,13 @@ router.post(
       .isLength({ min: 5 }),
   ],
   userController.resetPassword
+);
+
+router.delete(
+  "/user/:userId",
+  isAuth,
+  [param("userId", "At least select a register").trim().isLength({ min: 1 })],
+  userController.deleteUser
 );
 
 module.exports = router;
