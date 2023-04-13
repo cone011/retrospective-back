@@ -10,6 +10,11 @@ const boardSchema = new Schema({
     ref: "user",
     require: true,
   },
+  lastUser: {
+    type: Schema.Types.ObjectId,
+    ref: "user",
+    require: true,
+  },
 });
 
 module.exports = mongoose.model("board", boardSchema);
