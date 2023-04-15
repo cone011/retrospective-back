@@ -3,6 +3,38 @@ const Board = require("../models/board");
 const { validationParams } = require("../utils/validationParams");
 const { errorHandler } = require("../utils/errorHandler");
 
+exports.getAllBoard = async (req, res, next) => {
+  try {
+    const errors = validationResult(req);
+    validationParams(res, errors);
+    const currentPage = req.query.currentPage;
+    const perPage = req.query.perPage;
+    const totalItems = await Board.find().countDocuments();
+    const boards = await Board.find()
+      .populate("creator")
+      .sort({ createAt: -1 })
+      .skip((currentPage - 1) * perPage)
+      .limit(perPage);
+    res
+      .status(200)
+      .json({ message: "OK", boards: boards, totalItems: totalItems });
+  } catch (err) {
+    errorHandler(err, next);
+  }
+};
+
+exports.getBoardById = async (req, res, next) => {
+  try {
+    const errors = validationResult(req);
+    validationParams(res, errors);
+    const boardId = req.params.boardId;
+    const boardItem = await Board.findById(boardId);
+    res.status(200).json({ message: "OK", item: boardItem });
+  } catch (err) {
+    errorHandler(err, next);
+  }
+};
+
 exports.insertBoard = async (req, res, next) => {
   try {
     const errors = validationResult(req);
