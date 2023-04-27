@@ -26,6 +26,7 @@ exports.getAllUsers = async (req, res, next) => {
 
 exports.signUp = async (req, res, next) => {
   try {
+    console.log(req.body);
     const errors = validationResult(req);
     validationParams(res, errors);
     const email = req.body.email;
@@ -42,8 +43,9 @@ exports.signUp = async (req, res, next) => {
       phone: phone,
     });
     const result = await user.save();
-    res.status(201).json({ message: "OK", userId: result._id.toString() });
+    res.status(201).json({ message: "OK", userId: result._id });
   } catch (err) {
+    console.log(err);
     errorHandler(err, next);
   }
 };
