@@ -1,4 +1,4 @@
-const validationResult = require("express-validator");
+const { validationResult } = require("express-validator");
 const { validationParams } = require("../utils/validationParams");
 const { errorHandler } = require("../utils/errorHandler");
 const Type = require("../models/type");
@@ -41,15 +41,15 @@ exports.insertType = async (req, res, next) => {
     const errors = validationResult(req);
     validationParams(res, errors);
     const name = req.body.name;
-    const createAt = req.userId;
+    const author = req.userId;
     const lastAuthor = req.userId;
     const type = new Type({
       name: name,
-      createdAt: createAt,
+      author: author,
       lastAuthor: lastAuthor,
     });
     const result = await type.save();
-    res.status(201).json({ message: "OK", isSaved: true, userId: result._id });
+    res.status(201).json({ message: "OK", isSaved: true, typeId: result._id });
   } catch (err) {
     errorHandler(err, next);
   }

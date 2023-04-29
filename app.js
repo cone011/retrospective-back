@@ -14,6 +14,7 @@ const MONGODB_URL = process.env.MONGO_URL;
 const user = require("./routes/users");
 const board = require("./routes/board");
 const type = require("./routes/type");
+const comments = require("./routes/comments");
 
 const accessLogStream = fs.createWriteStream(
   path.join(__dirname, "access.log"),
@@ -44,6 +45,7 @@ app.use((error, req, res, next) => {
 app.use("/api", user);
 app.use("/api", board);
 app.use("/api", type);
+app.use("/api", comments);
 
 mongoose
   .connect(MONGODB_URL)
