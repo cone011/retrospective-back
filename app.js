@@ -11,8 +11,9 @@ dotenv.config();
 
 const MONGODB_URL = process.env.MONGO_URL;
 
-const userRouter = require("./routes/users");
-const boardRouter = require("./routes/board");
+const user = require("./routes/users");
+const board = require("./routes/board");
+const type = require("./routes/type");
 
 const accessLogStream = fs.createWriteStream(
   path.join(__dirname, "access.log"),
@@ -40,8 +41,9 @@ app.use((error, req, res, next) => {
   res.status(stauts).json({ isError: true, message: message });
 });
 
-app.use("/api", userRouter);
-app.use("/api", boardRouter);
+app.use("/api", user);
+app.use("/api", board);
+app.use("/api", type);
 
 mongoose
   .connect(MONGODB_URL)
