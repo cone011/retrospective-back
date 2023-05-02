@@ -4,16 +4,7 @@ const Schema = mongoose.Schema;
 const boardSchema = new Schema(
   {
     title: { type: String, require: true },
-    comments: {
-      type: [{ type: String }],
-      require: false,
-      commentCreator: {
-        type: Schema.Types.ObjectId,
-        ref: "user",
-        require: false,
-      },
-    },
-    likes: { type: Number, require: false },
+    type: [{ type: Schema.Types.ObjectId, ref: "type", require: true }],
     creator: {
       type: Schema.Types.ObjectId,
       ref: "user",

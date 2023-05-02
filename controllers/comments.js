@@ -24,11 +24,13 @@ exports.insertComment = async (req, res, next) => {
     validationParams(res, errors);
     const text = req.body.text;
     const likes = req.body.likes ? req.body.likes : 0;
+    const boardId = req.body.boardId;
     const author = req.userId;
     const lastAuth = req.userId;
     const comment = new Comments({
       text: text,
       likes: likes,
+      boardId: boardId,
       author: author,
       lastAuth: lastAuth,
     });

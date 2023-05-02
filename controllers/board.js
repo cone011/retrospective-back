@@ -40,14 +40,12 @@ exports.insertBoard = async (req, res, next) => {
     const errors = validationResult(req);
     validationParams(res, errors);
     const title = req.body.title;
-    const comments = req.body.comments;
-    const likes = req.body.likes;
+    const type = req.body.type;
     const creator = req.userId;
     const lastUser = req.userId;
     const board = new Board({
       title: title,
-      comments: comments,
-      likes: likes,
+      type: type,
       creator: creator,
       lastUser: lastUser,
     });

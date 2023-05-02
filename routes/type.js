@@ -33,9 +33,9 @@ router.post(
   "/type",
   isAuth,
   [
-    body("name", "At least the name have a length of 5 characters")
+    body("name", "At least the name have a length of 3 characters")
       .trim()
-      .isLength({ min: 5 }),
+      .isLength({ min: 3 }),
   ],
   type.insertType
 );
