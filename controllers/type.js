@@ -68,7 +68,7 @@ exports.updateType = async (req, res, next) => {
     typeObject.name = name;
     typeObject.lastAuthor = req.userId;
     const result = await typeObject.save();
-    res.status(201).json({ message: "OK", isSaved: true, userId: result._id });
+    res.status(201).json({ message: "OK", isSaved: true, typeId: result._id });
   } catch (err) {
     errorHandler(err, next);
   }
