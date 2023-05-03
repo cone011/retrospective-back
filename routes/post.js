@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const { body, param, query, check } = require("express-validator");
-const Board = require("../models/board");
-const boardController = require("../controllers/board");
+const Post = require("../models/post");
+const post = require("../controllers/post");
 const isAuth = require("../middleware/isAuth");
 
 router.get(
-  "/board",
+  "/Post",
   isAuth,
   [
     query(
@@ -18,59 +18,59 @@ router.get(
       "At least select the register you wanna show per page"
     ).isNumeric(),
   ],
-  boardController.getAllBoard
+  post.getAllPost
 );
 
 router.get(
-  "/board/:boardId",
+  "/Post/:PostId",
   isAuth,
   [
-    check("boardId")
+    check("PostId")
       .trim()
       .custom(async (value, { req }) => {
-        const boardItem = await Board.findById(value);
-        if (!boardItem) {
+        const PostItem = await Post.findById(value);
+        if (!PostItem) {
           throw new Error("This register was not found");
         }
       }),
   ],
-  boardController.getBoardById
+  post.getPostById
 );
 
 router.post(
-  "/board",
+  "/Post",
   isAuth,
   [
     body("title", "At least have to be more than 5 characters")
       .trim()
       .isLength({ min: 5 }),
   ],
-  boardController.insertBoard
+  post.insertPost
 );
 
 router.put(
-  "/board/:boardId",
+  "/post/:PostId",
   isAuth,
   [
-    param("boardId", "At least select one register to update")
+    param("PostId", "At least select one register to update")
       .trim()
       .isLength({ min: 1 }),
     body("title", "At least have to be more than 5 characters")
       .trim()
       .isLength({ min: 5 }),
   ],
-  boardController.updateBoard
+  post.updatePost
 );
 
 router.delete(
-  "/board/:boardId",
+  "/post/:PostId",
   isAuth,
   [
-    param("boardId", "At least select one register to delete")
+    param("PostId", "At least select one register to delete")
       .trim()
       .isLength({ min: 1 }),
   ],
-  boardController.deleteBoard
+  post.deletePost
 );
 
 module.exports = router;

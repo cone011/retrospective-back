@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const boardSchema = new Schema(
+const postSchema = new Schema(
   {
     title: { type: String, require: true },
     type: [{ type: Schema.Types.ObjectId, ref: "type", require: true }],
@@ -19,4 +19,4 @@ const boardSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("board", boardSchema);
+module.exports = mongoose.model("post", postSchema);

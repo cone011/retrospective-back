@@ -12,7 +12,7 @@ dotenv.config();
 const MONGODB_URL = process.env.MONGO_URL;
 
 const user = require("./routes/users");
-const board = require("./routes/board");
+const post = require("./routes/post");
 const type = require("./routes/type");
 const comments = require("./routes/comments");
 
@@ -43,7 +43,7 @@ app.use((error, req, res, next) => {
 });
 
 app.use("/api", user);
-app.use("/api", board);
+app.use("/api", post);
 app.use("/api", type);
 app.use("/api", comments);
 
