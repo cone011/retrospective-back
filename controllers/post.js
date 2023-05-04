@@ -2,6 +2,7 @@ const { validationResult } = require("express-validator");
 const Post = require("../models/post");
 const { validationParams } = require("../utils/validationParams");
 const { errorHandler } = require("../utils/errorHandler");
+const io = require("../socket/socket");
 
 exports.getAllPost = async (req, res, next) => {
   try {
@@ -43,16 +44,18 @@ exports.insertPost = async (req, res, next) => {
     const type = req.body.type;
     const creator = req.userId;
     const lastUser = req.userId;
-    const Post = new Post({
+    const post = new Post({
       title: title,
       type: type,
       creator: creator,
       lastUser: lastUser,
     });
-    const result = await Post.save();
-    res
-      .status(201)
-      .json({ message: "OK", isSaved: true, result: result._id.toString() });
+    const result = await post.save();
+    io.getIO().emit("posts", {
+      action: "create",
+      post: { ...post._doc, creator: { _id: req.userId } },
+    });
+    res.status(201).json({ message: "OK", isSaved: true, result: result._id });
   } catch (err) {
     errorHandler(err, next);
   }
@@ -77,7 +80,11 @@ exports.updatePost = async (req, res, next) => {
     PostItem.comments = comments;
     PostItem.likes = likes;
     PostItem.lastUser = lastUser;
-    await PostItem.save();
+    const result = await PostItem.save();
+    io.getIO().emit("posts", {
+      action: "update",
+      post: result,
+    });
     res.status(201).json({ message: "OK", isSaved: true });
   } catch (err) {
     errorHandler(err, next);
@@ -96,6 +103,10 @@ exports.deletePost = async (req, res, next) => {
       throw error;
     }
     await Post.findByIdAndDelete(PostId);
+    io.getIO().emit("posts", {
+      action: "delete",
+      post: PostId,
+    });
     res.status(201).json({ message: "OK", isDeleted: true });
   } catch (err) {
     errorHandler(err, next);

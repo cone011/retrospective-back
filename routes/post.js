@@ -6,7 +6,7 @@ const post = require("../controllers/post");
 const isAuth = require("../middleware/isAuth");
 
 router.get(
-  "/Post",
+  "/post",
   isAuth,
   [
     query(
@@ -22,7 +22,7 @@ router.get(
 );
 
 router.get(
-  "/Post/:PostId",
+  "/post/:PostId",
   isAuth,
   [
     check("PostId")
@@ -38,7 +38,7 @@ router.get(
 );
 
 router.post(
-  "/Post",
+  "/post",
   isAuth,
   [
     body("title", "At least have to be more than 5 characters")
