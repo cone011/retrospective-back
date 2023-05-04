@@ -12,7 +12,7 @@ exports.getAllTypes = async (req, res, next) => {
     const perPage = req.query.perPage;
     const totalItems = await Type.countDocuments();
     const types = await Type.find()
-      .populate("creator")
+      .select("_id name")
       .sort({ createAt: -1 })
       .skip((currentPage - 1) * perPage)
       .limit(perPage);
