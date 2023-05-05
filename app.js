@@ -52,7 +52,9 @@ mongoose
   .then((result) => {
     const serverPort = app.listen(process.env.PORT || 5050);
     const io = require("./socket/socket").init(serverPort);
-    io.on("connection", (socket) => {});
+    io.on("connection", (socket) => {
+      console.log(`User connected: ${socket.id}`);
+    });
   })
   .catch((err) => {
     console.log(err);
