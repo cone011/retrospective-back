@@ -15,6 +15,7 @@ const user = require("./routes/users");
 const post = require("./routes/post");
 const type = require("./routes/type");
 const comments = require("./routes/comments");
+const typePost = require("./routes/typePost");
 
 const accessLogStream = fs.createWriteStream(
   path.join(__dirname, "access.log"),
@@ -24,7 +25,6 @@ const accessLogStream = fs.createWriteStream(
 app.use(bodyParser.json());
 app.use(helmet());
 app.use(morgan("combined", { stream: accessLogStream }));
-const port = process.env.PORT || 5050;
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -46,15 +46,14 @@ app.use("/api", user);
 app.use("/api", post);
 app.use("/api", type);
 app.use("/api", comments);
+app.use("/api", typePost);
 
 mongoose
   .connect(MONGODB_URL)
   .then((result) => {
     const serverPort = app.listen(process.env.PORT || 5050);
     const io = require("./socket/socket").init(serverPort);
-    io.on("connection", (socket) => {
-      console.log(`User connected: ${socket.id}`);
-    });
+    io.on("connection", (socket) => {});
   })
   .catch((err) => {
     console.log(err);

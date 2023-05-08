@@ -24,6 +24,25 @@ exports.getAllTypes = async (req, res, next) => {
   }
 };
 
+exports.getAllTypesForSelect = async (req, res, next) => {
+  try {
+    const errors = validationResult(req);
+    validationParams(res, errors);
+    const types = await Type.aggregate([
+      {
+        $project: {
+          value: "$_id",
+          label: "$name",
+          _id: 0,
+        },
+      },
+    ]);
+    res.status(200).json({ message: "OK", types: types });
+  } catch (error) {
+    errorHandler(err, next);
+  }
+};
+
 exports.getTypeById = async (req, res, next) => {
   try {
     const errors = validationResult(req);

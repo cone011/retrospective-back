@@ -3,19 +3,36 @@ const Post = require("../models/post");
 const { validationParams } = require("../utils/validationParams");
 const { errorHandler } = require("../utils/errorHandler");
 const io = require("../socket/socket");
+const typePost = require("../models/typePost");
 
 exports.getAllPost = async (req, res, next) => {
   try {
     const errors = validationResult(req);
     validationParams(res, errors);
     const currentPage = req.query.currentPage;
-    const perPage = req.query.perPage;
+    const perPage = parseInt(req.query.perPage);
     const totalItems = await Post.find().countDocuments();
-    const Posts = await Post.find()
-      .populate("creator")
-      .sort({ createAt: -1 })
-      .skip((currentPage - 1) * perPage)
-      .limit(perPage);
+    const Posts = await Post.aggregate([
+      {
+        $lookup: {
+          from: "typeposts",
+          localField: "typePost",
+          foreignField: "_id",
+          pipeline: [
+            {
+              $project: { name: 1 },
+            },
+          ],
+          as: "typePost",
+        },
+      },
+      {
+        $unwind: "$typePost",
+      },
+    ]);
+    // .sort({ createAt: -1 })
+    // .skip((currentPage - 1) * perPage)
+    // .limit(perPage);
     res
       .status(200)
       .json({ message: "OK", Posts: Posts, totalItems: totalItems });
@@ -41,11 +58,13 @@ exports.insertPost = async (req, res, next) => {
     const errors = validationResult(req);
     validationParams(res, errors);
     const title = req.body.title;
+    const typePost = req.body.typePost;
     const type = req.body.type;
     const creator = req.userId;
     const lastUser = req.userId;
     const post = new Post({
       title: title,
+      typePost: typePost.value,
       type: type,
       creator: creator,
       lastUser: lastUser,
@@ -67,8 +86,8 @@ exports.updatePost = async (req, res, next) => {
     validationParams(res, errors);
     const PostId = req.params.PostId;
     const title = req.body.title;
-    const comments = req.body.comments;
-    const likes = req.body.likes;
+    const typePost = req.body.typePost;
+    const type = req.body.type;
     const lastUser = req.userId;
     const PostItem = await Post.findById(PostId);
     if (!PostItem) {
@@ -77,8 +96,8 @@ exports.updatePost = async (req, res, next) => {
       throw error;
     }
     PostItem.title = title;
-    PostItem.comments = comments;
-    PostItem.likes = likes;
+    PostItem.typePost = typePost;
+    PostItem.type = type;
     PostItem.lastUser = lastUser;
     const result = await PostItem.save();
     io.getIO().emit("posts", {

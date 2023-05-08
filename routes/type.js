@@ -4,21 +4,9 @@ const { param, body, query } = require("express-validator");
 const type = require("../controllers/type");
 const isAuth = require("../middleware/isAuth");
 
-router.get(
-  "/type",
-  isAuth,
-  [
-    query(
-      "currentPage",
-      "At least select a page for display the data"
-    ).isNumeric(),
-    query(
-      "perPage",
-      "At least select the register you wanna show per page"
-    ).isNumeric(),
-  ],
-  type.getAllTypes
-);
+router.get("/type", isAuth, type.getAllTypes);
+
+router.get("/select-type", isAuth, type.getAllTypesForSelect);
 
 router.get(
   "/type/:typeId",
