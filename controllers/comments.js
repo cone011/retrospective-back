@@ -3,6 +3,40 @@ const { validationParams } = require("../utils/validationParams");
 const { errorHandler } = require("../utils/errorHandler");
 const Comments = require("../models/comments");
 
+exports.getAllComments = async (req, res, next) => {
+  try {
+    const errors = validationResult(req);
+    validationParams(res, errors);
+    const currentPage = req.query.currentPage;
+    const perPage = parseInt(req.query.perPage);
+    const totalItems = await Comments.find().countDocuments();
+    const comments = await Comments.find()
+      .sort({ createAt: -1 })
+      .skip((currentPage - 1) * perPage)
+      .limit(perPage);
+    res
+      .status(200)
+      .json({ message: "OK", comments: comments, totalItems: totalItems });
+  } catch (err) {
+    errorHandler(err, next);
+  }
+};
+
+exports.getCommentsByPost = async (req, res, next) => {
+  try {
+    const errors = validationResult(req);
+    validationParams(res, errors);
+    const postId = req.params.postId;
+    const totalItems = await Comments.find({ postId: postId }).count();
+    const comments = await Comments.find({ postId: postId });
+    res
+      .status(200)
+      .json({ message: "OK", comments: comments, totalItems: totalItems });
+  } catch (err) {
+    errorHandler(err, next);
+  }
+};
+
 exports.getCommentById = async (req, res, next) => {
   try {
     const errors = validationResult(req);

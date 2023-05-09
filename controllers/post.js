@@ -46,7 +46,9 @@ exports.getPostById = async (req, res, next) => {
     const errors = validationResult(req);
     validationParams(res, errors);
     const PostId = req.params.PostId;
-    const PostItem = await Post.findById(PostId);
+    const PostItem = await Post.findById(PostId).select(
+      "_id title type typePost"
+    );
     res.status(200).json({ message: "OK", item: PostItem });
   } catch (err) {
     errorHandler(err, next);
@@ -104,13 +106,20 @@ exports.updatePost = async (req, res, next) => {
       throw error;
     }
     PostItem.title = title;
-    PostItem.typePost = typePost;
+    PostItem.typePost = typePost.value;
     PostItem.type = type;
     PostItem.lastUser = lastUser;
     const result = await PostItem.save();
+    const returnPost = {
+      title: title,
+      typePost: typePost,
+      type: type,
+      lastUser: lastUser,
+      _id: result._id,
+    };
     io.getIO().emit("posts", {
       action: "update",
-      post: result,
+      post: returnPost,
     });
     res.status(201).json({ message: "OK", isSaved: true });
   } catch (err) {
