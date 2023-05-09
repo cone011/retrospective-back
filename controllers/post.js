@@ -70,9 +70,17 @@ exports.insertPost = async (req, res, next) => {
       lastUser: lastUser,
     });
     const result = await post.save();
+    const returnPost = {
+      title: title,
+      typePost: typePost,
+      type: type,
+      creator: creator,
+      lastUser: lastUser,
+      _id: result._id,
+    };
     io.getIO().emit("posts", {
       action: "create",
-      post: { ...post._doc, creator: { _id: req.userId } },
+      post: { ...returnPost, creator: { _id: req.userId } },
     });
     res.status(201).json({ message: "OK", isSaved: true, result: result._id });
   } catch (err) {
