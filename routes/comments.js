@@ -1,14 +1,47 @@
 const express = require("express");
 const router = express.Router();
-const { body, param } = require("express-validator");
+const { body, param, query, check } = require("express-validator");
 const comments = require("../controllers/comments");
 const isAuth = require("../middleware/isAuth");
+const Post = require("../models/post");
+
+router.get(
+  "/comments",
+  isAuth,
+  [
+    query(
+      "currentPage",
+      "At least select a page for display the data"
+    ).isNumeric(),
+    query(
+      "perPage",
+      "At least select the register you wanna show per page"
+    ).isNumeric(),
+  ],
+  comments.getAllComments
+);
+
+router.get(
+  "/comments-post/:postId",
+  isAuth,
+  [
+    check("postId")
+      .trim()
+      .custom(async (value, { req }) => {
+        const PostItem = await Post.findById(value);
+        if (!PostItem) {
+          throw new Error("This register was not found");
+        }
+      }),
+  ],
+  comments.getCommentsByPost
+);
 
 router.get(
   "/comments/:commentId",
   isAuth,
   [
-    param("typeId", "At least select one register to obtain the information")
+    param("commentId", "At least select one register to obtain the information")
       .trim()
       .isLength({ min: 1 }),
   ],
@@ -19,25 +52,17 @@ router.post(
   "/comments",
   isAuth,
   [
-    body("text", "At least the name have a length of 5 characters")
+    body("comments", "At least have a comment").isArray().isLength({ min: 1 }),
+    check("postId")
       .trim()
-      .isLength({ min: 5 }),
+      .custom(async (value, { req }) => {
+        const PostItem = await Post.findById(value);
+        if (!PostItem) {
+          throw new Error("This register was not found");
+        }
+      }),
   ],
-  comments.insertComment
-);
-
-router.post(
-  "/comments/:commentId",
-  isAuth,
-  [
-    param("typeId", "At least select one register to obtain the information")
-      .trim()
-      .isLength({ min: 1 }),
-    body("text", "At least the name have a length of 5 characters")
-      .trim()
-      .isLength({ min: 5 }),
-  ],
-  comments.updateComment
+  comments.saveComments
 );
 
 router.delete(

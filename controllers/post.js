@@ -3,7 +3,6 @@ const Post = require("../models/post");
 const { validationParams } = require("../utils/validationParams");
 const { errorHandler } = require("../utils/errorHandler");
 const io = require("../socket/socket");
-const typePost = require("../models/typePost");
 
 exports.getAllPost = async (req, res, next) => {
   try {
@@ -45,8 +44,8 @@ exports.getPostById = async (req, res, next) => {
   try {
     const errors = validationResult(req);
     validationParams(res, errors);
-    const PostId = req.params.PostId;
-    const PostItem = await Post.findById(PostId).select(
+    const postId = req.params.postId;
+    const PostItem = await Post.findById(postId).select(
       "_id title type typePost"
     );
     res.status(200).json({ message: "OK", item: PostItem });
@@ -84,7 +83,7 @@ exports.insertPost = async (req, res, next) => {
       action: "create",
       post: { ...returnPost, creator: { _id: req.userId } },
     });
-    res.status(201).json({ message: "OK", isSaved: true, result: result._id });
+    res.status(201).json({ message: "OK", isSaved: true, postId: result._id });
   } catch (err) {
     errorHandler(err, next);
   }
@@ -94,12 +93,12 @@ exports.updatePost = async (req, res, next) => {
   try {
     const errors = validationResult(req);
     validationParams(res, errors);
-    const PostId = req.params.PostId;
+    const postId = req.params.postId;
     const title = req.body.title;
     const typePost = req.body.typePost;
     const type = req.body.type;
     const lastUser = req.userId;
-    const PostItem = await Post.findById(PostId);
+    const PostItem = await Post.findById(postId);
     if (!PostItem) {
       const error = new Error("Post register not found!");
       error.statusCode = 404;
@@ -121,7 +120,7 @@ exports.updatePost = async (req, res, next) => {
       action: "update",
       post: returnPost,
     });
-    res.status(201).json({ message: "OK", isSaved: true });
+    res.status(201).json({ message: "OK", isSaved: true, postId: postId });
   } catch (err) {
     errorHandler(err, next);
   }

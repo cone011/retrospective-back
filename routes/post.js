@@ -22,10 +22,10 @@ router.get(
 );
 
 router.get(
-  "/post/:PostId",
+  "/post/:postId",
   isAuth,
   [
-    check("PostId")
+    check("postId")
       .trim()
       .custom(async (value, { req }) => {
         const PostItem = await Post.findById(value);
@@ -49,10 +49,10 @@ router.post(
 );
 
 router.put(
-  "/post/:PostId",
+  "/post/:postId",
   isAuth,
   [
-    param("PostId", "At least select one register to update")
+    param("postId", "At least select one register to update")
       .trim()
       .isLength({ min: 1 }),
     body("title", "At least have to be more than 5 characters")

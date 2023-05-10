@@ -2,6 +2,7 @@ const { validationResult } = require("express-validator");
 const { validationParams } = require("../utils/validationParams");
 const { errorHandler } = require("../utils/errorHandler");
 const Comments = require("../models/comments");
+const io = require("../socket/socket");
 
 exports.getAllComments = async (req, res, next) => {
   try {
@@ -28,7 +29,9 @@ exports.getCommentsByPost = async (req, res, next) => {
     validationParams(res, errors);
     const postId = req.params.postId;
     const totalItems = await Comments.find({ postId: postId }).count();
-    const comments = await Comments.find({ postId: postId });
+    const comments = await Comments.find({ postId: postId }).select(
+      "_id comment postId"
+    );
     res
       .status(200)
       .json({ message: "OK", comments: comments, totalItems: totalItems });
@@ -52,49 +55,43 @@ exports.getCommentById = async (req, res, next) => {
   }
 };
 
-exports.insertComment = async (req, res, next) => {
+exports.saveComments = async (req, res, next) => {
   try {
     const errors = validationResult(req);
     validationParams(res, errors);
-    const text = req.body.text;
-    const likes = req.body.likes ? req.body.likes : 0;
-    const boardId = req.body.boardId;
-    const author = req.userId;
-    const lastAuth = req.userId;
-    const comment = new Comments({
-      text: text,
-      likes: likes,
-      boardId: boardId,
-      author: author,
-      lastAuth: lastAuth,
+    const comments = req.body.comments;
+    const postId = req.body.postId;
+    const newComments = comments.map((item) => {
+      if (item.isNew) {
+        return {
+          comment: item.comment,
+          postId: postId,
+          creator: req.userId,
+          lastUser: req.userId,
+        };
+      }
     });
-    const result = await comment.save();
-    res
-      .status(201)
-      .json({ message: "OK", isSaved: true, commentId: result._id });
-  } catch (err) {
-    errorHandler(err, next);
-  }
-};
-
-exports.updateComment = async (req, res, next) => {
-  try {
-    const errors = validationResult(req);
-    validationParams(res, errors);
-    const text = req.body.text;
-    const likes = req.body.likes ? req.body.likes : 0;
-    const commentId = req.params.commentId;
-    const commentObject = await Comments.findById(commentId);
-    if (!commentObject) {
-      throw new Error("Cant find this comment");
-    }
-    commentObject.text = text;
-    commentObject.likes = likes;
-    commentObject.lastAuth = req.userId;
-    const result = await commentObject.save();
-    res
-      .status(201)
-      .json({ message: "OK", isSaved: true, commentId: result._id });
+    const updateComments = await Promise.all(
+      comments.map(async (item) => {
+        if (!item.isNew) {
+          return await Comments.updateOne(
+            { _id: item._id },
+            { comment: item.comment, lastUser: req.userId }
+          );
+        }
+      })
+    );
+    const result = await Comments.insertMany(newComments);
+    io.getIO().emit("comments", {
+      action: "save",
+      comment: { comments, creator: { _id: req.userId } },
+    });
+    res.status(201).json({
+      message: "OK",
+      isSaved: true,
+      newComments: result,
+      updateComments: updateComments,
+    });
   } catch (err) {
     errorHandler(err, next);
   }
@@ -110,8 +107,12 @@ exports.deleteComment = async (req, res, next) => {
       throw new Error("Cant find this comment");
     }
     await Comments.findByIdAndDelete(commentId);
+    io.getIO().emit("comments", {
+      action: "delete",
+      comment: commentId,
+    });
     res.status(201).json({ message: "OK", isDelete: true });
-  } catch (error) {
+  } catch (err) {
     errorHandler(err, next);
   }
 };
