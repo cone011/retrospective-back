@@ -4,6 +4,7 @@ const { body, param, query, check } = require("express-validator");
 const comments = require("../controllers/comments");
 const isAuth = require("../middleware/isAuth");
 const Post = require("../models/post");
+const Comment = require("../models/comments");
 
 router.get(
   "/comments",
@@ -69,9 +70,14 @@ router.delete(
   "/comments/:commentId",
   isAuth,
   [
-    param("typeId", "At least select one register to obtain the information")
+    check("commentId")
       .trim()
-      .isLength({ min: 1 }),
+      .custom(async (value, { req }) => {
+        const commentItem = await Comment.findById(value);
+        if (!commentItem) {
+          throw new Error("This comment was not found");
+        }
+      }),
   ],
   comments.deleteComment
 );
