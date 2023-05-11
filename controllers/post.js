@@ -28,10 +28,10 @@ exports.getAllPost = async (req, res, next) => {
       {
         $unwind: "$typePost",
       },
-    ]);
-    // .sort({ createAt: -1 })
-    // .skip((currentPage - 1) * perPage)
-    // .limit(perPage);
+    ])
+      .sort({ createdAt: -1 })
+      .skip((currentPage - 1) * perPage)
+      .limit(perPage);
     res
       .status(200)
       .json({ message: "OK", Posts: Posts, totalItems: totalItems });
