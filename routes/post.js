@@ -37,6 +37,8 @@ router.get(
   post.getPostById
 );
 
+router.get("/search-post", isAuth, post.getSearchPostByParameters);
+
 router.post(
   "/post",
   isAuth,

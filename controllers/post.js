@@ -51,6 +51,43 @@ exports.getPostById = async (req, res, next) => {
   }
 };
 
+exports.getSearchPostByParameters = async (req, res, next) => {
+  try {
+    const errors = validationResult(req);
+    validationParams(res, errors);
+    const typePost = req.query.typePost;
+    const type = req.query.type;
+    let totalItems, postItems;
+    if (type !== undefined && typePost !== undefined) {
+      totalItems = await Post.find({
+        type: { $elemMatch: { $in: type } },
+      }).countDocuments();
+      postItems = await Post.find({
+        type: { $elemMatch: { $in: type } },
+      });
+    } else if (type !== undefined) {
+      totalItems = await Post.find({
+        type: { $elemMatch: { $in: type } },
+      }).countDocuments();
+      postItems = await Post.find({
+        type: { $elemMatch: { $in: type } },
+      });
+    } else if (typePost !== undefined) {
+      totalItems = await Post.find({
+        typePost: typePost,
+      }).countDocuments();
+      postItems = await Post.find({
+        typePost: typePost,
+      });
+    }
+    res
+      .status(200)
+      .json({ message: "OK", posts: postItems, totalItems: totalItems });
+  } catch (err) {
+    errorHandler(err, next);
+  }
+};
+
 exports.insertPost = async (req, res, next) => {
   try {
     const errors = validationResult(req);
