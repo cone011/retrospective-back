@@ -1,11 +1,41 @@
 [{
   "_id": {
-    "$oid": "644c0b72757f057437c6c05b"
+    "$oid": "6449ba32708968b946f63e51"
   },
   "email": "jjcaimen@gmail.com",
-  "password": "$2b$12$6lE70j6Y19UI01/qOH45LeETk/roD2shhj5qtF3WXVtItpzsTDcM2",
+  "password": "$2b$12$fmPSJSiMcRH0BlJzmC28u.PhSwn5ZuhV1.yWuj80Z8TN3ehSSCwwq",
   "firstName": "Juan Jose",
   "lastName": "Caimen",
+  "phone": "+595971320425",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6449c247e55523666df4a1dc"
+  },
+  "email": "coneprom011@hotmail.com",
+  "password": "$2b$12$e95AuNdoAc0Bg9mAnNy0l.OWJOfzQ5gVdmx/Xk1RSeIjO4KrSuC5i",
+  "firstName": "Juan Jose",
+  "lastName": "Caimen",
+  "phone": "+595971320425",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645ec4c7def773ccc313682d"
+  },
+  "email": "jjcaimen@gmail.com",
+  "password": "$2b$12$fG7FKsgGF6qPkePH4pj8Aeb24lVd5ifdTJblNwAnmXKXjUIjJ0.Fy",
+  "firstName": "TEST",
+  "lastName": "TEST",
+  "phone": "+595971320425",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645ec52fdef773ccc3136836"
+  },
+  "email": "test@test.com",
+  "password": "$2b$12$GZ7JJGQcMGXy6qtj2C5pi.5u3t/Lm225/ErZ4AMDCnru8JFGPxrEC",
+  "firstName": "TEST TEST",
+  "lastName": "TEST TEST",
   "phone": "+595971320425",
   "__v": 0
 }]

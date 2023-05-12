@@ -24,9 +24,27 @@ exports.getAllUsers = async (req, res, next) => {
   }
 };
 
+exports.getAllUserLabel = async (req, res, next) => {
+  try {
+    const errors = validationResult(req);
+    validationParams(res, errors);
+    const users = await User.aggregate([
+      {
+        $project: {
+          value: "$_id",
+          label: "$email",
+          _id: 0,
+        },
+      },
+    ]);
+    res.status(200).json({ message: "OK", users: users });
+  } catch (error) {
+    errorHandler(err, next);
+  }
+};
+
 exports.signUp = async (req, res, next) => {
   try {
-    console.log(req.body);
     const errors = validationResult(req);
     validationParams(res, errors);
     const email = req.body.email;
@@ -45,7 +63,6 @@ exports.signUp = async (req, res, next) => {
     const result = await user.save();
     res.status(201).json({ message: "OK", userId: result._id });
   } catch (err) {
-    console.log(err);
     errorHandler(err, next);
   }
 };

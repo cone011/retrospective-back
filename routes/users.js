@@ -19,6 +19,8 @@ router.get(
   userController.getAllUsers
 );
 
+router.get("/users-format", isAuth, userController.getAllUserLabel);
+
 router.post(
   "/login",
   [
