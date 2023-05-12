@@ -8,8 +8,6 @@ exports.getAllPost = async (req, res, next) => {
   try {
     const errors = validationResult(req);
     validationParams(res, errors);
-    const currentPage = req.query.currentPage;
-    const perPage = parseInt(req.query.perPage);
     const totalItems = await Post.find().countDocuments();
     const Posts = await Post.aggregate([
       {
@@ -57,28 +55,39 @@ exports.getSearchPostByParameters = async (req, res, next) => {
     validationParams(res, errors);
     const typePost = req.query.typePost;
     const type = req.query.type;
+    const currentPage = req.query.currentPage;
+    const perPage = req.query.perPage;
     let totalItems, postItems;
     if (type !== undefined && typePost !== undefined) {
       totalItems = await Post.find({
-        type: { $elemMatch: { $in: type } },
+        $and: [{ typePost: typePost }, { type: { $elemMatch: { $in: type } } }],
       }).countDocuments();
       postItems = await Post.find({
-        type: { $elemMatch: { $in: type } },
-      });
+        $and: [{ typePost: typePost }, { type: { $elemMatch: { $in: type } } }],
+      })
+        .sort({ createdAt: -1 })
+        .skip((currentPage - 1) * perPage)
+        .limit(perPage);
     } else if (type !== undefined) {
       totalItems = await Post.find({
         type: { $elemMatch: { $in: type } },
       }).countDocuments();
       postItems = await Post.find({
         type: { $elemMatch: { $in: type } },
-      });
+      })
+        .sort({ createdAt: -1 })
+        .skip((currentPage - 1) * perPage)
+        .limit(perPage);
     } else if (typePost !== undefined) {
       totalItems = await Post.find({
         typePost: typePost,
       }).countDocuments();
       postItems = await Post.find({
         typePost: typePost,
-      });
+      })
+        .sort({ createdAt: -1 })
+        .skip((currentPage - 1) * perPage)
+        .limit(perPage);
     }
     res
       .status(200)
