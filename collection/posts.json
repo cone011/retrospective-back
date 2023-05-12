@@ -1,0 +1,849 @@
+[{
+  "_id": {
+    "$oid": "645a389160e95406feeb91a8"
+  },
+  "title": "A Post",
+  "typePost": {
+    "$oid": "6458df4e786ca3b546cf6f08"
+  },
+  "type": [
+    {
+      "$oid": "645264763b36d022eb336e05"
+    },
+    {
+      "$oid": "64512f5eeb6a21ac8841f6e1"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-09T12:12:01.583Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-09T12:12:01.583Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645a38a960e95406feeb91ac"
+  },
+  "title": "A Post 2",
+  "typePost": {
+    "$oid": "6458df40786ca3b546cf6f06"
+  },
+  "type": [
+    {
+      "$oid": "645264763b36d022eb336e05"
+    },
+    {
+      "$oid": "64512f5eeb6a21ac8841f6e1"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-09T12:12:25.152Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-09T12:12:25.152Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645a38b260e95406feeb91ae"
+  },
+  "title": "A Post 3",
+  "typePost": {
+    "$oid": "6458df40786ca3b546cf6f06"
+  },
+  "type": [
+    {
+      "$oid": "645264763b36d022eb336e05"
+    },
+    {
+      "$oid": "64512f5eeb6a21ac8841f6e1"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-09T12:12:34.793Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-09T12:12:34.793Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645a38b760e95406feeb91b0"
+  },
+  "title": "A Post 3",
+  "typePost": {
+    "$oid": "6458df53786ca3b546cf6f0a"
+  },
+  "type": [
+    {
+      "$oid": "645264763b36d022eb336e05"
+    },
+    {
+      "$oid": "64512f5eeb6a21ac8841f6e1"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-09T12:12:39.745Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-09T12:12:39.745Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645a3a5360e95406feeb91c2"
+  },
+  "title": "A Post Update 778",
+  "typePost": {
+    "$oid": "6458df40786ca3b546cf6f06"
+  },
+  "type": [
+    {
+      "$oid": "64512f53eb6a21ac8841f6df"
+    },
+    {
+      "$oid": "645264763b36d022eb336e05"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-09T12:19:31.786Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-09T12:32:30.605Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645b7f4be34a42a961ba4737"
+  },
+  "title": "",
+  "type": [],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-10T11:26:03.200Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-10T11:26:03.200Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645bb0be347ab18a58921f8c"
+  },
+  "title": "A Post with comment",
+  "typePost": {
+    "$oid": "6458df4e786ca3b546cf6f08"
+  },
+  "type": [
+    {
+      "$oid": "64512f29eb6a21ac8841f6dd"
+    },
+    {
+      "$oid": "64512f5eeb6a21ac8841f6e1"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-10T14:57:02.082Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-10T14:57:02.082Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645bb246347ab18a58921f94"
+  },
+  "title": "A Post with comment 2",
+  "typePost": {
+    "$oid": "6458df4e786ca3b546cf6f08"
+  },
+  "type": [
+    {
+      "$oid": "64512f29eb6a21ac8841f6dd"
+    },
+    {
+      "$oid": "64512f5eeb6a21ac8841f6e1"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-10T15:03:34.614Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-10T15:03:34.614Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645bb2ca347ab18a58921fa0"
+  },
+  "title": "A Post With Some comments",
+  "typePost": {
+    "$oid": "6458df40786ca3b546cf6f06"
+  },
+  "type": [
+    {
+      "$oid": "64512f53eb6a21ac8841f6df"
+    },
+    {
+      "$oid": "64512f5eeb6a21ac8841f6e1"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-10T15:05:46.708Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-10T15:05:46.708Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645bf0e7456022c60f1d8f1b"
+  },
+  "title": "Testing",
+  "typePost": {
+    "$oid": "6458df53786ca3b546cf6f0a"
+  },
+  "type": [
+    {
+      "$oid": "64512f53eb6a21ac8841f6df"
+    },
+    {
+      "$oid": "64512f5eeb6a21ac8841f6e1"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-10T19:30:47.419Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-10T19:30:47.419Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645d3ba318c6bb89bff6de1c"
+  },
+  "title": "A PO 9",
+  "typePost": {
+    "$oid": "6458df40786ca3b546cf6f06"
+  },
+  "type": [
+    {
+      "$oid": "64512f53eb6a21ac8841f6df"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-11T19:01:55.286Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T19:01:55.286Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645d3bac18c6bb89bff6de25"
+  },
+  "title": "DSADA",
+  "typePost": {
+    "$oid": "6458df4e786ca3b546cf6f08"
+  },
+  "type": [
+    {
+      "$oid": "64512f53eb6a21ac8841f6df"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-11T19:02:04.384Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T19:02:04.384Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645d3c3f18c6bb89bff6de2e"
+  },
+  "title": "DASDASDADA",
+  "typePost": {
+    "$oid": "6458df53786ca3b546cf6f0a"
+  },
+  "type": [
+    {
+      "$oid": "64512f53eb6a21ac8841f6df"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-11T19:04:31.839Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T19:04:31.839Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645d3c937da2b3308919f377"
+  },
+  "title": "dasdsada",
+  "typePost": {
+    "$oid": "6458df4e786ca3b546cf6f08"
+  },
+  "type": [
+    {
+      "$oid": "64512f53eb6a21ac8841f6df"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-11T19:05:55.924Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T19:05:55.924Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e4ad45c77f0b4d8724d85"
+  },
+  "title": "Went Well 1",
+  "typePost": {
+    "$oid": "6458df40786ca3b546cf6f06"
+  },
+  "type": [
+    {
+      "$oid": "64512f29eb6a21ac8841f6dd"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-12T14:19:00.747Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T14:19:00.747Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e4ae65c77f0b4d8724d8e"
+  },
+  "title": "Went Well 2",
+  "typePost": {
+    "$oid": "6458df40786ca3b546cf6f06"
+  },
+  "type": [
+    {
+      "$oid": "64512f5eeb6a21ac8841f6e1"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-12T14:19:18.360Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T14:19:18.360Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e4afa5c77f0b4d8724d97"
+  },
+  "title": "Went Well 3",
+  "typePost": {
+    "$oid": "6458df40786ca3b546cf6f06"
+  },
+  "type": [
+    {
+      "$oid": "64512f29eb6a21ac8841f6dd"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-12T14:19:38.909Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T14:19:38.909Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e4b075c77f0b4d8724da0"
+  },
+  "title": "Went Well 4",
+  "typePost": {
+    "$oid": "6458df40786ca3b546cf6f06"
+  },
+  "type": [
+    {
+      "$oid": "64512f29eb6a21ac8841f6dd"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-12T14:19:51.829Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T14:19:51.829Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e4b135c77f0b4d8724da9"
+  },
+  "title": "Went Well 5",
+  "typePost": {
+    "$oid": "6458df40786ca3b546cf6f06"
+  },
+  "type": [
+    {
+      "$oid": "64512f29eb6a21ac8841f6dd"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-12T14:20:03.159Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T14:20:03.159Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e4b365c77f0b4d8724db2"
+  },
+  "title": "Went Well 6",
+  "typePost": {
+    "$oid": "6458df40786ca3b546cf6f06"
+  },
+  "type": [
+    {
+      "$oid": "64512f29eb6a21ac8841f6dd"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-12T14:20:38.533Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T14:20:38.533Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e55cbaf819ac43b4a4d0f"
+  },
+  "title": "A post",
+  "typePost": {
+    "$oid": "6458df53786ca3b546cf6f0a"
+  },
+  "type": [
+    {
+      "$oid": "64512f29eb6a21ac8841f6dd"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-12T15:05:47.669Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T15:05:47.669Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e5639af819ac43b4a4d20"
+  },
+  "title": "a post",
+  "typePost": {
+    "$oid": "6458df4e786ca3b546cf6f08"
+  },
+  "type": [
+    {
+      "$oid": "64512f5eeb6a21ac8841f6e1"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-12T15:07:37.010Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T15:07:37.010Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e564daf819ac43b4a4d26"
+  },
+  "title": "A post to improve",
+  "typePost": {
+    "$oid": "6458df4e786ca3b546cf6f08"
+  },
+  "type": [
+    {
+      "$oid": "64512f5eeb6a21ac8841f6e1"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-12T15:07:57.710Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T15:07:57.710Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e566baf819ac43b4a4d2e"
+  },
+  "title": "a post to improve  2",
+  "typePost": {
+    "$oid": "6458df4e786ca3b546cf6f08"
+  },
+  "type": [
+    {
+      "$oid": "64512f29eb6a21ac8841f6dd"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-12T15:08:27.818Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T15:08:27.818Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e5703af819ac43b4a4d37"
+  },
+  "title": "dsadasdsadsadasd",
+  "typePost": {
+    "$oid": "6458df53786ca3b546cf6f0a"
+  },
+  "type": [],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-12T15:10:59.449Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T15:10:59.449Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e571daf819ac43b4a4d3f"
+  },
+  "title": "hola",
+  "typePost": {
+    "$oid": "6458df4e786ca3b546cf6f08"
+  },
+  "type": [
+    {
+      "$oid": "64512f29eb6a21ac8841f6dd"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-12T15:11:25.857Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T15:11:25.857Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e5745af819ac43b4a4d45"
+  },
+  "title": "hola 2",
+  "typePost": {
+    "$oid": "6458df4e786ca3b546cf6f08"
+  },
+  "type": [
+    {
+      "$oid": "64512f29eb6a21ac8841f6dd"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-12T15:12:05.205Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T15:12:05.205Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e575aaf819ac43b4a4d4e"
+  },
+  "title": "hola 3",
+  "typePost": {
+    "$oid": "6458df4e786ca3b546cf6f08"
+  },
+  "type": [
+    {
+      "$oid": "64512f5eeb6a21ac8841f6e1"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-12T15:12:26.646Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T15:12:26.646Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e57acaf819ac43b4a4d5b"
+  },
+  "title": "Hola 4",
+  "typePost": {
+    "$oid": "6458df53786ca3b546cf6f0a"
+  },
+  "type": [
+    {
+      "$oid": "64512f5eeb6a21ac8841f6e1"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-12T15:13:48.540Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T15:13:48.540Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e5803af819ac43b4a4d6a"
+  },
+  "title": "hola 5",
+  "typePost": {
+    "$oid": "6458df4e786ca3b546cf6f08"
+  },
+  "type": [
+    {
+      "$oid": "64512f29eb6a21ac8841f6dd"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-12T15:15:15.443Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T15:15:15.443Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e582caf819ac43b4a4d7b"
+  },
+  "title": "hola 6",
+  "typePost": {
+    "$oid": "6458df53786ca3b546cf6f0a"
+  },
+  "type": [
+    {
+      "$oid": "64512f29eb6a21ac8841f6dd"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-12T15:15:56.455Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T15:15:56.455Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e5926af819ac43b4a4d91"
+  },
+  "title": "A post with comment",
+  "typePost": {
+    "$oid": "6458df53786ca3b546cf6f0a"
+  },
+  "type": [
+    {
+      "$oid": "64512f29eb6a21ac8841f6dd"
+    }
+  ],
+  "creator": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastUser": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-12T15:20:06.050Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T15:20:06.050Z"
+  },
+  "__v": 0
+}]

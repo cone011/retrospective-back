@@ -1,0 +1,11 @@
+[{
+  "_id": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "email": "jjcaimen@gmail.com",
+  "password": "$2b$12$6lE70j6Y19UI01/qOH45LeETk/roD2shhj5qtF3WXVtItpzsTDcM2",
+  "firstName": "Juan Jose",
+  "lastName": "Caimen",
+  "phone": "+595971320425",
+  "__v": 0
+}]

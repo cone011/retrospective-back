@@ -1,0 +1,73 @@
+[{
+  "_id": {
+    "$oid": "64512f29eb6a21ac8841f6dd"
+  },
+  "name": "Technology",
+  "author": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastAuthor": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-02T15:41:29.266Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-02T15:41:29.266Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64512f53eb6a21ac8841f6df"
+  },
+  "name": "Art/Desing",
+  "author": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastAuthor": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-02T15:42:11.899Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-02T15:43:12.165Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64512f5eeb6a21ac8841f6e1"
+  },
+  "name": "Docker",
+  "author": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastAuthor": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-02T15:42:22.543Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-02T15:42:22.543Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645264763b36d022eb336e05"
+  },
+  "name": "prueba de carga",
+  "author": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "lastAuthor": {
+    "$oid": "644c0b72757f057437c6c05b"
+  },
+  "createdAt": {
+    "$date": "2023-05-03T13:41:10.777Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-03T13:41:10.777Z"
+  },
+  "__v": 0
+}]
